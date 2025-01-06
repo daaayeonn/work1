@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Off Studio</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://unpkg.com/lenis@1.1.10/dist/lenis.min.js"></script>
+  <script src="./assets/js/index.js" defer></script>
+</head>
+<body>
+  <div id="wrap">
+    <div class="loading">
+      <div class="loading__content">
+        <div class="loading__logo">
+          <svg viewBox="0 0 279 161" fill="#fff" xmlns="http://www.w3.org/2000/svg" class="w-[27.9rem] h-[16.1rem]"><path d="M139.483 161C62.5829 161 0 126.018 0 83C0 39.9816 62.5829 5 139.483 5C216.383 5 278.966 39.9816 278.966 83C278.966 126.018 216.383 161 139.483 161ZM139.483 11.6695C66.3061 11.6695 6.76938 43.6832 6.76938 83C6.76938 122.317 66.3061 154.33 139.483 154.33C212.66 154.33 272.197 122.317 272.197 83C272.197 43.6832 212.694 11.6695 139.483 11.6695Z" class="fill-current"></path> <path d="M139.484 161C95.8218 161 60.3164 126.018 60.3164 83C60.3164 39.9816 95.8556 5 139.484 5C183.113 5 218.652 39.9816 218.652 83C218.652 126.018 183.147 161 139.484 161ZM139.484 11.6695C99.5788 11.6695 67.0858 43.6832 67.0858 83C67.0858 122.317 99.5788 154.33 139.484 154.33C179.39 154.33 211.883 122.317 211.883 83C211.883 43.6832 179.424 11.6695 139.484 11.6695Z" class="fill-current"></path> <path d="M63.698 79.665H3.38281V86.3346H63.698V79.665Z" class="fill-current"></path> <path d="M275.581 79.665H215.266V86.3346H275.581V79.665Z" class="fill-current"></path> <path d="M146.118 51.4197C78.3907 51.4197 25.0819 44.4167 24.2695 44.3167L25.1834 37.7139C26.368 37.8806 145.441 53.4539 253.582 37.7139L254.564 44.3167C218.009 49.6523 180.202 51.4197 146.085 51.4197H146.118Z" class="fill-current"></path> <path d="M251.516 128.353C250.332 128.186 133.357 112.613 25.2159 128.353L24.2344 121.75C133.357 105.843 251.246 121.583 252.43 121.75L251.516 128.353Z" class="fill-current"></path> <path d="M142.867 8.33496H136.098V48.1186H142.867V8.33496Z" class="fill-current"></path> <path d="M142.867 117.915H136.098V156.498H142.867V117.915Z" class="fill-current"></path> <path d="M85.0586 97.9064V66.9932H99.5451C106.044 66.9932 109.598 69.6276 109.598 74.7632C109.598 78.5648 107.33 80.4322 104.724 81.2993V81.3993C108.007 81.9662 110.816 84.2005 110.816 88.8358C110.816 95.1385 106.619 97.9064 100.12 97.9064H85.0586ZM98.1573 79.6319C101 79.6319 102.625 78.7315 102.625 76.0971C102.625 73.4626 100.865 72.5622 98.2927 72.5622H91.7941V79.6652H98.1573V79.6319ZM98.4958 92.3707C102.321 92.3707 103.844 91.0701 103.844 88.1689C103.844 85.2676 102.05 83.9671 98.7666 83.9671H91.7941V92.3373H98.4958V92.3707Z" class="fill-current"></path> <path d="M112.27 82.4329C112.27 73.1289 118.024 66.3594 127.771 66.3594C137.519 66.3594 143.273 73.1289 143.273 82.4329C143.273 91.7369 137.485 98.5398 127.771 98.5398C118.057 98.5398 112.27 91.7702 112.27 82.4329ZM136.301 82.4329C136.301 76.6971 134.067 71.8284 127.738 71.8284C121.408 71.8284 119.242 76.6638 119.242 82.4329C119.242 88.202 121.374 93.0708 127.738 93.0708C134.101 93.0708 136.301 88.202 136.301 82.4329Z" class="fill-current"></path> <path d="M145.305 76.7641C145.305 70.7615 149.908 66.293 155.797 66.293C161.687 66.293 166.29 70.7282 166.29 76.7641C166.29 82.8 161.687 87.2353 155.797 87.2353C149.908 87.2353 145.305 82.8 145.305 76.7641ZM163.954 76.7308C163.954 71.6619 160.705 68.2271 155.797 68.2271C150.889 68.2271 147.64 71.6953 147.64 76.7308C147.64 81.7663 150.889 85.3011 155.797 85.3011C160.705 85.3011 163.954 81.8996 163.954 76.7308ZM151.262 82.3999V70.9616H156.542C159.114 70.9616 160.671 72.1288 160.671 74.2964C160.671 75.8637 159.757 76.7975 158.302 77.1643C161.247 77.6978 160.231 82.0997 160.874 82.2665V82.4332H157.591C156.982 81.9663 158.031 78.3981 155.459 78.3981H154.443V82.4332H151.296L151.262 82.3999ZM155.594 75.9971C156.745 75.9971 157.523 75.5969 157.523 74.5632C157.523 73.5294 156.745 73.1959 155.594 73.1959H154.41V75.9971H155.594Z" class="fill-current"></path> <path d="M167.676 87.4352H174.547C174.682 91.2035 177.356 93.1043 181.79 93.1043C185.479 93.1043 187.002 91.6036 187.002 89.5027C187.002 86.4014 183.888 85.7345 179.048 84.4006C173.768 82.8999 168.725 80.9991 168.725 75.3634C168.725 69.1274 173.633 66.3262 180.402 66.3262C187.679 66.3262 192.993 70.0278 193.298 76.2971H186.461C186.021 73.3959 183.99 71.7618 180.402 71.7618C177.458 71.7618 175.664 72.7623 175.664 74.8632C175.664 77.4643 177.999 78.1312 181.993 79.265C188.018 80.8991 193.941 82.4664 193.941 88.9025C193.941 94.6049 189.744 98.5066 181.891 98.5066C174.039 98.5066 167.811 94.4382 167.676 87.4018V87.4352Z" class="fill-current"></path></svg>
+          <div class="loading__dimmed"></div>
+        </div>
+      </div>
+    </div>
+    <header id="header" class="header">
+      <div class="header__inner grid-layout">
+        <div class="header__logo">
+          <h1 class="logo"><a href=""><img src="./assets/images/logo.svg" alt="Better Off"></a></h1>
+        </div>
+        <div class="header__nav">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="" class="nav__link on">Overview</a></li>
+              <li class="nav__item"><a href="" class="nav__link">Work</a></li>
+              <li class="nav__item"><a href="" class="nav__link">Feed</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__util">
+          <div class="util">
+            <a href="" class="util__link">Pricing</a>
+            <a href="" class="util__link--m__menu">Menu</a>
+          </div>
+        </div>
+        <div class="header__mobile--nav">
+          <div class="mobile--nav">
+            <div class="mobile">
+              <div class="mobile__top">
+                <div class="mobile__logo">
+                  <a href="" class="mobile__logo--link"><img src="./assets/images/logo_mobile.svg" alt="Better Off" class="mobile__logo--img"></a>
+                </div>
+                <a href="" class="mobile__menu--close">Menu</a>
+              </div>
+              <div class="mobile__bottom">
+                <ul class="mobile__list">
+                  <li class="mobile__item">
+                    <a href="" class="mobile__link">Overview</a>
+                  </li>
+                  <li class="mobile__item">
+                    <a href="" class="mobile__link">Work</a>
+                  </li>
+                  <li class="mobile__item">
+                    <a href="" class="mobile__link">Feed</a>
+                  </li>
+                </ul>
+                <div class="mobile__link--wrapper">
+                  <a href="" class="mobile__link--today">
+                    <span class="text">Subscribe today</span>
+                    <i class="ic--arrow mobile__icon"><span class="blind">바로가기</span></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="overview">
+        <h2 class="blind">Overview</h2>
+        <div class="overview__content">
+          <div class="overview__inner inner">
+            <div class="overview__grid grid-layout">
+              <div class="overview__pick">
+                <div class="pick">
+                  <span class="pick__desc">Pick a plan, submit a job request, and your project will kickoff within 24 hours.</span>
+                  <a href="" class="pick__link">
+                    <span>Explore Plans</span>
+                    <div class="pick__icon">
+                      <span class="pick__arrow">→</span>
+                      <span class="pick__arrow">→</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="overview__text">
+                <div class="overview__desc split-line">Premium quality creative at lean rates for growing businesses. Packaged as subscriptions or bundled projects.</div>
+              </div>
+            </div>
+          </div>
+          <div class="overview__flow hidden">
+            <div class="flow">
+              <div class="flow__wrap">
+                <span class="flow__text">SUBSCRIBE</span>
+                <img src="./assets/images/flow1.avif" alt class="flow__img">
+              </div>
+              <div class="flow__wrap">
+                <span class="flow__text">SUBSCRIBE</span>
+                <img src="./assets/images/flow1.avif" alt class="flow__img">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overview__bottom grid-layout">
+          <p class="overview__bottom--text split-line text-up">
+            No more inflated agency fees. No more flaky freelancers. No more salaried employees to manage. Just top-tier creative that’s easy, high velocity, and sensibly priced.
+          </p>
+          <p class="overview__bottom--text split-line text-up">
+            Get transformational talent and capabilities in a turnkey platform that promises your brand will be Better Off®.
+          </p>
+        </div>
+      </section>
+      <section class="creative" data-scroll="parent">
+        <div class="creative__inner inner" data-scroll="child">
+          <div class="creative__grid grid-layout">
+            <h2 class="headline">● CREATIVE AS IT SHOULD BE</h2>
+            <span class="page-num">(BO® — 01)</span>
+            <ul class="creative__list">
+              <li class="creative__item">
+                <strong class="creative__title">Fully Loaded</strong>
+                <p class="creative__desc">From complex strategies to intricate identities to bleeding-edge digital development, every project is now possible with a click.</p>
+              </li>
+              <li class="creative__item">
+                <strong class="creative__title">Flat Fee Flex</strong>
+                <p class="creative__desc">We don't haggle over hours. Our plans are nimble and allow plenty of wiggle room to account for shifting priorities and rethinking.</p>
+              </li>
+              <li class="creative__item">
+                <strong class="creative__title">Creative Control</strong>
+                <p class="creative__desc">We don't want our clients to ever feel trapped or locked into anything. If you want to pump the brakes or step on the gas, feel free to pause, cancel, or upgrade anytime.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="work" data-scroll="parent">
+        <div class="work__inner inner" data-scroll="child">
+          <div class="work__top grid-layout">
+            <h2 class="headline">● PROJECTS</h2>
+            <div class="work__top--wrapper">
+              <span class="page-num">(BO® — 02)</span>
+              <a href="" class="work__link">See all of our work</a>
+            </div>
+          </div>
+          <div class="work__content">
+            <div class="content">
+              <div class="content__text">
+                <span class="content__title">PREMIUM</span>
+              </div>
+              <div class="content__text">
+                <strong class="content__title">WO</strong>
+                <div class="content__video"></div>
+                <strong class="content__title">RK</strong>
+              </div>
+            </div>
+          </div>
+          <div class="work__video--wrapper">
+            <div class="video--wrapper">
+              <div class="video">
+                <div class="video__relative">
+                  <a href="" class="video__link">
+                    <video src="./assets/videos/work-video.mp4" autoplay muted loop></video>
+                  </a>
+                  <div class="video__cursor">
+                    <div class="video__thumb"><img src="./assets/images/work_video1.jpg" alt class="video__thumb--img"></div>
+                    <span class="video__cursor--text">See All (5)</span>
+                  </div>
+                </div>
+                <div class="video__text">
+                  <span>Client work</span>
+                  <span class="video__time">(2012—2024)</span>
+                  <div class="video__link--hidden"><a href="" class="video__link--all">View Select Projects (5)</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="service">
+        <div class="service__inner inner">
+          <div class="service__grid grid-layout">
+            <div class="service__left">
+              <h2 class="headline">● CONCIERGE CREATIVE</h2>
+              <div class="page-num">(BO® — 03)</div>
+            </div>
+            <div class="service__letter">
+              <span>SERVICES</span>
+            </div>
+            <p class="service__desc split-line text-up">
+              Superior brands require sophisticated capabilities that many businesses couldn't access until now.
+            </p>
+          </div>
+          <div class="service__process grid-layout">
+            <div class="process">
+              <ul class="process__list">
+                <li class="process__item process__item--title">
+                  <span>Our process and capabilites include:</span>
+                </li>
+                <li class="process__item">
+                  <a href="" class="process__more">
+                    <span class="num">1</span>
+                    <strong class="process__title">Strategy</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="process__sub">
+                    <div class="sub">
+                      <p class="desc">
+                        Behind every surprising campaign, compelling site launch, or must-watch piece of content, there’s a well-considered strategy that engineered the outcome. During this crucial phase, we address the foundational and psychological factors that drive the desired interaction between brand and customer. We match logic-based journeys with pinpoint executions that create memorable and lasting engagements.
+                      </p>
+                      <ul class="sub__list">
+                        <li class="sub__item">Brand Architecture & Roadmaps</li>
+                        <li class="sub__item">Brand Strategy</li>
+                        <li class="sub__item">Digital Strategy</li>
+                        <li class="sub__item">Product Launch Strategy</li>
+                        <li class="sub__item">SEO & Content Strategy</li>
+                        <li class="sub__item">Information Architecture (IA)</li>
+                        <li class="sub__item">Design Systems</li>
+                        <li class="sub__item">Brand Messaging</li>
+                        <li class="sub__item">User Research & Testing</li>
+                        <li class="sub__item">New Revenue Streams</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="process__item">
+                  <a href="" class="process__more">
+                    <span class="num">2</span>
+                    <strong class="process__title">Design</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="process__sub">
+                    <div class="sub">
+                      <p class="desc">
+                        Our design services focus on pitch-perfect brand identities, flawless UX and UI design, and unforgettable product builds that ensure your vision is brought to life with intention and precision. Our rapid prototyping and ironclad design systems streamline the development process, while our expertise in information architecture and motion design enhances usability and engagement. We create intuitive product interfaces and captivating social media designs that pop off the screen and elicit action.
+                      </p>
+                      <ul class="sub__list">
+                        <li class="sub__item">Brand Identity</li>
+                        <li class="sub__item">Brand Guidelines</li>
+                        <li class="sub__item">UX and UI Design</li>
+                        <li class="sub__item">Website & App Design</li>
+                        <li class="sub__item">Art Direction</li>
+                        <li class="sub__item">Product Concepting</li>
+                        <li class="sub__item">Rapid Prototyping</li>
+                        <li class="sub__item">Content Design</li>
+                        <li class="sub__item">Motion Design</li>
+                        <li class="sub__item">Product Interfaces</li>
+                        <li class="sub__item">Social Media Design</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="process__item">
+                  <a href="" class="process__more">
+                    <span class="num">3</span>
+                    <strong class="process__title">Technology</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="process__sub">
+                    <div class="sub">
+                      <p class="desc">
+                        We build full-stack digital brand extensions that serve as the online anchors of our clients’ multichannel narratives. Our no-code Framer and Webflow solutions enable rapid and efficient development timelines for both sites and products. As Shopify Plus e-commerce partners and WordPress master developers, we offer the most advanced functionality options paired with the simplest and most robust content management systems. When it comes to development, our velocity and versatility is unrivaled.
+                      </p>
+                      <ul class="sub__list">
+                        <li class="sub__item">No-code Framer Solutions</li>
+                        <li class="sub__item">Webflow Solutions</li>
+                        <li class="sub__item">Shopify Plus (Partners)</li>
+                        <li class="sub__item">Advanced E-commerce</li>
+                        <li class="sub__item">WordPress</li>
+                        <li class="sub__item">Full Stack Development</li>
+                        <li class="sub__item">Journey Mapping & Testing</li>
+                        <li class="sub__item">Accessibility (WCAG) 2.1</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="process__item">
+                  <a href="" class="process__more">
+                    <span class="num">4</span>
+                    <strong class="process__title">Content</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="process__sub">
+                    <div class="sub">
+                      <p class="desc">
+                        We craft content designed to cancel noise, cut through clutter, and connect with your customers on an emotional level. We view content as branded behavior that must reflect the position and principles of the company, and serve as an authentic extension of its story. Every content launch includes a strategy that aligns with your business objectives and a deployment plan that ensures the project comes in on-deadline and on-budget.
+                      </p>
+                      <ul class="sub__list">
+                        <li class="sub__item">Brand Asset Development</li>
+                        <li class="sub__item">Integrated Campaign Development</li>
+                        <li class="sub__item">Social Content Development</li>
+                        <li class="sub__item">Email Campaign Development</li>
+                        <li class="sub__item">Generative AI Image Creation</li>
+                        <li class="sub__item">Copywriting</li>
+                        <li class="sub__item">Brand Naming</li>
+                        <li class="sub__item">Project Management</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="client" data-scroll="parent">
+        <div class="client__content" data-scroll="child">
+          <div class="client__inner inner">
+            <div class="client__top grid-layout">
+              <h2 class="headline">● CLIENT APPROVAL</h2>
+              <span class="sub-title">CREATIVE AS BUNDLED PROJECTS</span>
+              <span class="page-num">(BO® — 04)</span>
+            </div>
+            <div class="client__tab">
+              <div class="tab">
+                <ul class="tab__list">
+                  <li class="tab__item on"><a href="" data-tab="#client-tab1" class="tab__link"><img src="./assets/images/client_logo1.avif" alt></a></li>
+                  <li class="tab__item"><a href="" data-tab="#client-tab2" class="tab__link"><img src="./assets/images/client_logo2.avif" alt></a></li>
+                  <li class="tab__item"><a href="" data-tab="#client-tab3" class="tab__link"><img src="./assets/images/client_logo3.avif" alt></a></li>
+                  <li class="tab__item"><a href="" data-tab="#client-tab4" class="tab__link"><img src="./assets/images/client_logo4.avif" alt></a></li>
+                  <li class="tab__item"><a href="" data-tab="#client-tab5" class="tab__link"><img src="./assets/images/client_logo5.avif" alt></a></li>
+                </ul>
+                <div class="tab__content">
+                  <div id="client-tab1" class="content on">
+                    <span class="content__num">1 — 5</span>
+                    <div class="content__review">
+                      <p class="content__text split-line">
+                        “We involve this team in every new product.
+                        They excel at their work and care about
+                        every detail, making each project special
+                        and unique.”
+                      </p>
+                      <div class="content__source">
+                        <div class="source">
+                          <div class="thumb">
+                            <img src="./assets/images/client_thumb1.avif" alt>
+                          </div>
+                          <div class="source__text">
+                            <div class="source__text--hidden hidden"><strong class="name">Jesse Orrico</strong></div>
+                            <div class="source__text--hidden hidden"><span class="job">Relevant Compliance / Product Owner</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="client-tab2" class="content">
+                    <span class="content__num">2 — 5</span>
+                    <div class="content__review">
+                      <p class="content__text split-line">
+                        “Referred by a friend, we appreciated this
+                        team's clear pricing and flexible staffing for
+                        our major site launches, including Shopify
+                        development. They're now our go-to team in
+                        a pinch.”
+                      </p>
+                      <div class="content__source">
+                        <div class="source">
+                          <div class="thumb">
+                            <img src="./assets/images/client_thumb2.avif" alt>
+                          </div>
+                          <div class="source__text">
+                            <div class="source__text--hidden hidden"><strong class="name">Oleksandra Zubrytska</strong></div>
+                            <div class="source__text--hidden hidden"><span class="job">The Hollis Co. / Technical Project Manager</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="client-tab3" class="content">
+                    <span class="content__num">3 — 5</span>
+                    <div class="content__review">
+                      <p class="content__text split-line">
+                        “This team excelled under pressure,
+                        delivering a standout UX/UI update to our
+                        booking section that redefined our
+                        collaboration and became a highlight for
+                        Royal Caribbean.”
+                      </p>
+                      <div class="content__source">
+                        <div class="source">
+                          <div class="thumb">
+                            <img src="./assets/images/client_thumb3.avif" alt>
+                          </div>
+                          <div class="source__text">
+                            <div class="source__text--hidden hidden"><strong class="name">Tina Rossell</strong></div>
+                            <div class="source__text--hidden hidden"><span class="job">Royal Carribbean / Commodity & Marketing Manager</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="client-tab4" class="content">
+                    <span class="content__num">4 — 5</span>
+                    <div class="content__review">
+                      <p class="content__text split-line">
+                        “We've partnered with Better Off for years,
+                        and are always impressed by their
+                        innovative brand development and precise
+                        execution. Their work during our recent
+                        rebrand matched our vision perfectly.”
+                      </p>
+                      <div class="content__source">
+                        <div class="source">
+                          <div class="thumb">
+                            <img src="./assets/images/client_thumb4.avif" alt>
+                          </div>
+                          <div class="source__text">
+                            <div class="source__text--hidden hidden"><strong class="name">Andrew Watson</strong></div>
+                            <div class="source__text--hidden hidden"><span class="job">Built Things / Owner</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="client-tab5" class="content">
+                    <span class="content__num">5 — 5</span>
+                    <div class="content__review">
+                      <p class="content__text split-line">
+                        “We have a long history with this company
+                        and several major projects together. Their
+                        expertise consistently makes us look good.”
+                      </p>
+                      <div class="content__source">
+                        <div class="source">
+                          <div class="thumb">
+                            <img src="./assets/images/client_thumb5.avif" alt>
+                          </div>
+                          <div class="source__text">
+                            <div class="source__text--hidden hidden"><strong class="name">Fran Mayo</strong></div>
+                            <div class="source__text--hidden hidden"><span class="job">Space Craft / Marketing Manager</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="client__bg">
+            <img src="./assets/images/client_bg1.avif" alt>
+          </div>
+        </div>
+      </section>
+      <section class="benefit" data-scroll="parent">
+        <div class="benefit__inner inner" data-scroll="child">
+          <div class="benefit__top grid-layout">
+            <h2 class="headline">● FULL BENEFITS</h2>
+            <span class="page-num">(BO® — 05)</span>
+            <span class="sub-title">CREATIVE AS A SUBSCRIPTION</span>
+          </div>
+          <div class="benefit__letter">
+            <div class="letter">
+              <div class="letter__wrap letter__wrap--left hidden">
+                <strong class="letter__text">CREATIVE</strong>
+              </div>
+              <div class="letter__wrap letter__wrap--left hidden">
+                <strong class="letter__text">WITH</strong>
+                <img class="letter__img" src="./assets/images/benefit.avif" alt>
+              </div>
+              <div class="letter__wrap letter__wrap--right hidden">
+                <strong class="letter__text">NO FLUFF</strong>
+              </div>
+            </div>
+          </div>
+          <div class="benefit__content">
+            <div class="content">
+              <div class="content__grid grid-layout">
+                <p class="content__text">We've trimmed the fat to focus on essential services at skinny rates.</p>
+                <ul class="content__list">
+                  <li class="content__item">
+                    <span class="content__num">(01)</span>
+                    <strong class="content__title">Your deadlines are our lifeblood</strong>
+                    <p class="content__desc">Go ahead, flood us with project requests. Our convenient subscriptions offer retainer-level coverage at fixed, affordable monthly rates.</p>
+                  </li>
+                  <li class="content__item">
+                    <span class="content__num">(02)</span>
+                    <strong class="content__title">Tap previously unattainable talent</strong>
+                    <p class="content__desc">We’ve already vetted and assembled the most elite roster of specialists out there. Simply plug into our power outlet to crank up your brand..</p>
+                  </li>
+                  <li class="content__item">
+                    <span class="content__num">(03)</span>
+                    <strong class="content__title">Cancel culture</strong>
+                    <p class="content__desc">Scale on your terms and assume complete control over your creative needs by cancelling or upgrading your plan anytime.</p>
+                  </li>
+                  <li class="content__item">
+                    <span class="content__num">(04)</span>
+                    <strong class="content__title">Endless revisions are the ultimate flex</strong>
+                    <p class="content__desc">Free yourself from restrictive change order fees! We are committed to polishing your project until you think it’s shiny and perfect.</p>
+                  </li>
+                  <li class="content__item">
+                    <span class="content__num">(05)</span>
+                    <strong class="content__title">Fast turnarounds, not idle runarounds</strong>
+                    <p class="content__desc">By trimming fat from the bloated agency process, we’re able to meet deadlines at turn rates that average days not weeks.</p>
+                  </li>
+                  <li class="content__item">
+                    <span class="content__num">(06)</span>
+                    <strong class="content__title">Our thinking sets us apart</strong>
+                    <p class="content__desc">Every partnership comes with the strategic brainpower you’d expect from three decades of combined branding experience.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="plan">
+        <div class="plan__inner inner">
+          <div class="plan__top grid-layout">
+            <h2 class="headline">● PLANS</h2>
+            <span class="page-num">(BO® — 06)</span>
+            <span class="sub-title">ADD-TO-CART CREATIVE</span>
+          </div>
+          <button class="plan__toggle">
+            <span>Subscriptions</span>
+            <div class="plan__switch">
+              <input type="checkbox" id="toggle">
+              <label for="toggle"></label>
+            </div>
+            <span>Projects</span>
+          </button>
+           <div class="plan__text--wrapper">
+            <p class="plan__desc split-line subscriptions on">Subscriptions are like having an in-house creative department without the headaches of managing salaried employees.</p>
+            <p class="plan__desc split-line projects">Bundled projects are for clients who know exactly what they need. Off the shelf and on-target, everything included.</p>
+           </div>
+          <div class="plan__content">
+            <div class="content">
+              <!-- subscriptions list -->
+              <ul class="content__list subscriptions on">
+                <li class="content__item">
+                  <span class="content__tag">Most popular</span>
+                  <div class="content__top">
+                    <strong class="content__title">Part-time Pro</strong>
+                    <p class="content__desc">One part-time creative dedicated to your continuous stream of projects.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">6400</span>
+                          <span class="price__month">/month</span>
+                        </div>
+                        <p class="price__desc">Pause or cancel anytime.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Subscribe now</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">One dedicated creative, 20 hrs a week</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Unlimited requests</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Unlimited revisions</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Project management</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Access to all services</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Pause or cancel anytime</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item">
+                  <span class="content__tag">Best Value</span>
+                  <div class="content__top">
+                    <strong class="content__title">Full-time Premium</strong>
+                    <p class="content__desc">One elite full-timer working simultaneously on multiple projects.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">12800</span>
+                          <span class="price__month">/month</span>
+                        </div>
+                        <p class="price__desc">Pause or cancel anytime.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Subscribe now</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Still not sure? Let’s discuss.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">One senior creative, 40 hrs a week</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Unlimited requests</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Unlimited revisions</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Project management</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Access to all services</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Pause or cancel anytime</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item content__item--last">
+                  <div class="content__top">
+                    <strong class="content__title--last">Build your own subscription. We’ll tailor the perfect team.</strong>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link content__link--single">
+                      <span class="content__link--text">Customize my plan</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Full access to all creative capabilities</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Coverage from kickoff to delivery</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Senior-level talent</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Creative direction</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Project management</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Easy add-on services mid-project</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- projects list -->
+              <ul class="content__list projects">
+                <li class="content__item">
+                  <span class="content__tag">Client Pick</span>
+                  <div class="content__top">
+                    <strong class="content__title">Brand Identity</strong>
+                    <p class="content__desc">Complete brand build from kickoff to delivery in 30 days.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">35000</span>
+                          <span class="price__month">/flat fee</span>
+                        </div>
+                        <p class="price__desc">Timeline: 1 month</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Start Project</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Brand Strategy</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Concept Development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Visual Direction</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Brand Messaging/Tagline/Voice</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Web/Social/Collateral Design</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Brand Guidelines</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item">
+                  <span class="content__tag">Award Winner</span>
+                  <div class="content__top">
+                    <strong class="content__title">Integrated Campaign</strong>
+                    <p class="content__desc">Translate business objectives into results across all touch points.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">14800</span>
+                          <span class="price__month">/flat fee</span>
+                        </div>
+                        <p class="price__desc">Timeline: 4-6 weeks</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Start Project</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Messaging Strategy</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Multichannel Media Strategy</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Multiple Concept Directions</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Web/Social/Collateral Design</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Final Files Designed to Specs</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Content Launch Plan</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item">
+                  <span class="content__tag">Hot Seller</span>
+                  <div class="content__top">
+                    <strong class="content__title">Website Update</strong>
+                    <p class="content__desc">Maximize leads and engagement with a design and functionality refresh..</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">24500</span>
+                          <span class="price__month">/flat fee</span>
+                        </div>
+                        <p class="price__desc">Timeline: 8 weeks</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Start Project</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Optimization audit</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Information Architecture</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Copywriting</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">UI/UX Design</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Full stack development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Testing and launch</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item">
+                  <span class="content__tag">Best-in-Class</span>
+                  <div class="content__top">
+                    <strong class="content__title">Custom Website</strong>
+                    <p class="content__desc">End-to-end design and technology that best reflects your brand and vision.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">55000</span>
+                          <span class="price__month">/flat fee</span>
+                        </div>
+                        <p class="price__desc">Timeline: 12-16 weeks</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Start Project</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Brand immersion/strategy</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Concept development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">IA, Copywriting, UI/UX Design</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Full Stack Development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Unlimited Integrations</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Testing and launch</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item">
+                  <span class="content__tag">Top Rated</span>
+                  <div class="content__top">
+                    <strong class="content__title">Custom Website w/ Ecommerce</strong>
+                    <p class="content__desc">All the bells and whistles of our Custom option but with a robust ecomm add-on.</p>
+                    <div class="content__price">
+                      <div class="price">
+                        <div class="price__wrap">
+                          <span class="price__currency">$</span>
+                          <span class="price__text">65000</span>
+                          <span class="price__month">/flat fee</span>
+                        </div>
+                        <p class="price__desc">Timeline: 16 weeks</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Start Project</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Brand immersion/strategy</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Concept development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">IA, Copywriting, UI/UX Design</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Full Stack Development</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Integrations, Shopping Platform</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Testing and launch</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="content__item content__item--last">
+                  <div class="content__top">
+                    <strong class="content__title--last">Build your own project. Custom to meet your exact specs.</strong>
+                  </div>
+                  <div class="content__middle">
+                    <a href="" class="content__link">
+                      <span class="content__link--text">Customize my plan</span>
+                      <i class="ic-arrow content__icon--arrow"><span class="blind">바로가기</span></i>
+                    </a>
+                    <a href="" class="content__link--more">Need more info? Let’s chat.</a>
+                  </div>
+                  <div class="content__bottom">
+                    <div class="bottom">
+                      <span class="bottom__title">What’s included</span>
+                      <ul class="bottom__list">
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Full Creative Service Capabilities</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Coverage from Kickoff to Execution</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Award-Winning, Premium Talent</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Creative Direction</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Project Management</span>
+                        </li>
+                        <li class="bottom__item">
+                          <i class="ic-check bottom__icon--check"><span class="blind">체크아이콘</span></i>
+                          <span class="bottom__text">Easy Add-On Services Mid-Project</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq">
+        <div class="faq__inner inner">
+          <div class="faq__top grid-layout">
+            <div class="faq__left">
+              <h2 class="headline">● FAQ</h2>
+              <span class="page-num">(BO® — 07)</span>
+            </div>
+            <div class="faq__right">
+              <p class="faq__desc split-line text-up">
+                We love talking shop and answering questions. See the most common inquiries below or book a chat.
+              </p>
+            </div>
+          </div>
+          <div class="faq__content">
+            <div class="faq__grid grid-layout">
+              <span class="sub">Frequently asked questions</span>
+              <ul class="faq__list">
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">What distinguishes us from other agencies?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">We have worked at the largest agencies in the world and we’ve owned our own digital development studios. From those experiences, we identified all the wasteful processes that inflate fees, over-complicate communications, and delay turnaround times. In creating our subscriptions and ready-made projects, we have streamlined creative services to include only what’s absolutely essential for achieving the best client outcomes. By eliminating the bloat, it allowed us to offer growing businesses access to high-end creative that they wouldn’t have otherwise been able to afford. We’re innovative. We’re doing it to serve you. And we’re exceptional at what we do. That’s what distinguishes us.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">Why not hire an in-house designer or freelancer?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">In today’s job market, a senior creative will cost you six figures. It’ll take at least a couple months to recruit and onboard them. Then you’ll have to manage them, their personality, and their narrow area of expertise. With a subscription or ready-made project, you have access to multi-disciplined talent, all senior level, and we do the managing. As far as freelancers, the A-listers are usually booked, and those that are available are juggling a roster of other clients. They’re often undependable, and having to jump from one to another causes brand inconsistency.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">Are creative requests truly unlimited?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Once you’re a client, you’re free to submit as many requests as you’d like within your Project Workflow, and we’ll deliver them one-after-another, in order of priority, as defined by you. A Project Workflow is a queue of active requests serviced by your dedicated creative. Each request that comes is worked on one at a time. If you want two project requests serviced simultaneously, you would simply subscribe to our more robust plan with double the workflows and dedicated creatives.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">How fast will I receive my work?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Depends on the project requested. But, on average, we complete most design requests within 2-3 days. More complex requests require lengthier timelines. But we’re always upfront and reasonable about our estimated delivery dates, as well as any phases that require milestones to reach them.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">What’s your refund policy?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">We work tirelessly to revise and tweak and refine until you love our work. Considering the amount of effort, attention, and quality that we pour into our work, we cannot issue refunds.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">What if I have a single project?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Our subscriptions work best for companies that have ongoing branding needs. If you’ve got a single project, we offer a full-service menu of prepackaged projects to suit most creative needs. If you don’t find the project you’re looking for, please book a chat and we’ll tailor a service to meet your exact needs.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">What don’t we do?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Our array of services are comprehensive. But there are a few areas that don’t fall within our expertise: Media buying, technical copywriting, and 3D modeling are a few. If you have something specific in mind, reach out and let’s discuss the specs.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">How do I submit a creative request?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Once you’ve signed up, you will receive an email that grants access to your client dashboard with a project request form that will walk you through the steps to initiate your job. Once submitted, your dedicated Project Manager will contact you within 24 hours and immediately assign an appropriate creative. You will begin receiving daily project updates that will continue until final delivery. Simple, easy, and thorough.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">Do I own my work?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Every piece of creative we develop is tailored specifically for your brand and 100% owned by you. We share access to all your native source files.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">How is my team assembled?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Your dedicated Project Manager will review your  projected workflow before assigning the appropriate creative based on the personality of the brand and the nature and scope of the work. For more complex projects, your dedicated creative will change, depending on the phase of the project. For example, on a website development assignment, your dedicated creative would shift according to the stage of work: strategist, copywriter, art director, designer, developer.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">How soon can I submit a project request?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Immediately upon sign up, you will receive an email that grants access to your client dashboard with a project request form that will notify your dedicated Project Manager to assign your creative. From sign-up to the start of work happens within 24 hours.</p>
+                  </div>
+                </li>
+                <li class="faq__item">
+                  <a href="" class="faq__more">
+                    <strong class="faq__title">How do I upgrade, downgrade, or cancel?</strong>
+                    <div class="ic-plus"></div>
+                  </a>
+                  <div class="faq__answer">
+                    <p class="answer">Scaling is painless. For any changes to your plan, simply email your desired status update to subscribe@betteroff.studio. Upgrade costs are prorated during your current billing cycle.
+                    <br><br>
+                    For downgrades, your plan will renew at the lower level on your next billing date. To cancel, all you have to do is email subscribe@betteroff.studio and we’ll take care of you!</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about" data-scroll="parent">
+        <div class="about__inner inner" data-scroll="child">
+          <div class="about__top grid-layout">
+            <h2 class="headline">● WHAT WE'RE ABOUT</h2>
+            <span class="page-num">(BO® — 08)</span>
+            <span class="sub-title">CREATIVE AS BUNDLED PROJECTS</span>
+          </div>
+          <div class="about__letter">
+            <div class="letter">
+              <div class="letter__wrap hidden">
+                <span class="letter__text">GET</span>
+                <img src="./assets/images/about.avif" alt class="letter__img">
+                <span class="letter__text">TO</span>
+              </div>
+              <div class="letter__wrap letter__wrap--right hidden">
+                <span class="letter__text">KNOW US</span>
+              </div>
+            </div>
+          </div>
+          <div class="about__mobile">
+            <img src="./assets/images/about.avif" alt class="about__mobile--img">
+          </div>
+          <div class="about__grid grid-layout">
+            <a href="" class="about__link">
+              <div class="about__img"><img src="./assets/images/about2.avif" alt></div>
+              <span class="title">How Subscriptions End Agency Excess.</span>
+              <span class="sub">Article - 7 minute read</span>
+            </a>
+            <div class="about__text">
+              <p class="about__desc split-line text-up">
+                More than a blog, The Feed is our point of view. It reflects who we are and what we’re into. It’s where industry, culture, lifestyle, and our own work intersect in a meaningful way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer__inner inner">
+        <div class="footer__top">
+          <span class="footer__text">Still unsure whether our plans are right for you?</span>
+          <a href="" class="chat-link">Let’s chat</a>
+        </div>
+        <div class="footer__site">
+          <div class="site">
+            <ul class="site__list grid-layout">
+              <li class="site__item sitemap">
+                <strong class="title">Sitemap</strong>
+                <div class="site__menu">
+                  <a href="" class="site__link active">Overview</a>
+                  <a href="" class="site__link">Work</a>
+                  <a href="" class="site__link">Feed</a>
+                  <a href="" class="site__link">Pricing</a>
+                </div>
+              </li>
+              <li class="site__item legal">
+                <strong class="title">Legal</strong>
+                <div class="site__menu">
+                  <a href="" class="site__link">Terms</a>
+                  <a href="" class="site__link">Privacy</a>
+                </div>
+              </li>
+              <li class="site__item social">
+                <strong class="title">Social</strong>
+                <div class="site__menu">
+                  <a href="" class="site__link">Instagram</a>
+                  <a href="" class="site__link">Linkedin</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__flow">
+        <div class="flow">
+          <div class="flow__wrap">
+            <span class="flow__text">SUBSCRIBE</span>
+            <div class="flow__slide flow__slide--first">
+              <div class="slide">
+                <img src="./assets/images/flow1.avif" alt class="slide__img active">
+                <img src="./assets/images/flow2.avif" alt class="slide__img">
+                <img src="./assets/images/flow3.avif" alt class="slide__img">
+                <img src="./assets/images/flow4.avif" alt class="slide__img">
+                <img src="./assets/images/flow5.avif" alt class="slide__img">
+                <img src="./assets/images/flow6.avif" alt class="slide__img">
+                <img src="./assets/images/flow7.avif" alt class="slide__img">
+                <img src="./assets/images/flow8.avif" alt class="slide__img">
+                <img src="./assets/images/flow9.avif" alt class="slide__img">
+                <img src="./assets/images/flow10.avif" alt class="slide__img">
+                <img src="./assets/images/flow11.avif" alt class="slide__img">
+                <img src="./assets/images/flow12.avif" alt class="slide__img">
+                <img src="./assets/images/flow13.avif" alt class="slide__img">
+                <img src="./assets/images/flow14.avif" alt class="slide__img">
+                <img src="./assets/images/flow15.avif" alt class="slide__img">
+              </div>
+            </div>
+          </div>
+          <div class="flow__wrap">
+            <span class="flow__text">SUBSCRIBE</span>
+            <div class="flow__slide flow__slide--seconde">
+              <div class="slide">
+                <img src="./assets/images/flow1.avif" alt class="slide__img active">
+                <img src="./assets/images/flow2.avif" alt class="slide__img">
+                <img src="./assets/images/flow3.avif" alt class="slide__img">
+                <img src="./assets/images/flow4.avif" alt class="slide__img">
+                <img src="./assets/images/flow5.avif" alt class="slide__img">
+                <img src="./assets/images/flow6.avif" alt class="slide__img">
+                <img src="./assets/images/flow7.avif" alt class="slide__img">
+                <img src="./assets/images/flow8.avif" alt class="slide__img">
+                <img src="./assets/images/flow9.avif" alt class="slide__img">
+                <img src="./assets/images/flow10.avif" alt class="slide__img">
+                <img src="./assets/images/flow11.avif" alt class="slide__img">
+                <img src="./assets/images/flow12.avif" alt class="slide__img">
+                <img src="./assets/images/flow13.avif" alt class="slide__img">
+                <img src="./assets/images/flow14.avif" alt class="slide__img">
+                <img src="./assets/images/flow15.avif" alt class="slide__img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer_copy">Copyright © Better Off 2024</span>
+        <button class="top-btn">Back to top ↑</button>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
