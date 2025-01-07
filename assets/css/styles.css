@@ -1447,6 +1447,9 @@ body::-webkit-scrollbar {
 .work__video--wrapper .video--wrapper .video__relative {
   position: relative;
 }
+.work__video--wrapper .video--wrapper .video__link video {
+  width: 100%;
+}
 .work__video--wrapper .video--wrapper .video__cursor {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1905,6 +1908,10 @@ body::-webkit-scrollbar {
   transition: -webkit-transform 0.6s 0.4s;
   transition: transform 0.6s 0.4s;
   transition: transform 0.6s 0.4s, -webkit-transform 0.6s 0.4s;
+}
+.client__tab .tab__content .content.on .source .thumb img {
+  width: 100%;
+  height: 100%;
 }
 .client__tab .tab__content .content.on .source .name {
   -webkit-transform: translateY(0%);
