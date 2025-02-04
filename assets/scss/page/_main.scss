@@ -996,9 +996,10 @@
     }
   }
   &__toggle {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.68vw;
+    cursor: pointer;
     @include mobile {
       font-size: 4.92vw;
       gap: 0 2.46vw;

@@ -184,15 +184,19 @@ $('.faq .faq__more').click(function (e) {
 })
 
 
-$('.plan #toggle').change(function () {
-  
-  if ( $(this).is(':checked') ) {
+$('.plan__toggle').click(function (e) {
+  let checkbox = $('#toggle');
+  checkbox.prop("checked", !checkbox.prop("checked")).trigger("change");
+  e.preventDefault();
+});
+
+$('#toggle').change(function () {
+  if ($(this).is(':checked')) {
     $('.plan .projects').addClass('on').removeClass('hide').siblings().addClass('hide').removeClass('on');
 
     setTimeout(() => {
       $('.plan .projects').siblings().removeClass('hide');
     }, 600);
-
   } else {
     $('.plan .subscriptions').addClass('on').removeClass('hide').siblings().addClass('hide').removeClass('on');
 
@@ -201,9 +205,12 @@ $('.plan #toggle').change(function () {
     }, 600);
   }
 
-  ScrollTrigger.refresh()
-  lenis.resize()
+  ScrollTrigger.refresh();
+  lenis.resize();
 });
+
+
+
 
 
 const about = gsap.timeline({
