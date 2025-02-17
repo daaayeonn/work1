@@ -110,6 +110,7 @@
   }
   &__flow {
     margin-top: 4.64vw;
+    overflow: hidden;
     @include mobile {
       margin-top: 17.23vw;
     }

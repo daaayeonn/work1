@@ -772,6 +772,7 @@ body::-webkit-scrollbar {
 }
 .footer__flow {
   margin-top: 4.64vw;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   .footer__flow {
