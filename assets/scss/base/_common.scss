@@ -72,13 +72,16 @@ body::-webkit-scrollbar {
   height: 100%;
   overflow: hidden;
   &__content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     height: 100vh;
   }
   &__logo {
     position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 18.75vw;
     @include mobile {
       width: 68.92vw;
